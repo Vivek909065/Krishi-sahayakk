@@ -6,4 +6,8 @@ scikit-learn
 matplotlib
 scipy
 joblib
--e .
+requests
+xgboost
+catboost
+mean
+#-e .
