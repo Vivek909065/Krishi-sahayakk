@@ -21,26 +21,21 @@ class DataTransformation:
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
-    def get_data_transformer_object(self, train_df):
+    def get_data_transformer_object(self):
         '''
         This function is responsible for data transformation
         '''
         try:
-            # Dynamically determine columns if not explicitly specified
-            numerical_columns = [col for col in train_df.select_dtypes(include=['int64', 'float64']).columns 
-                                 if col != "Zn"]  # Exclude target column
-            categorical_columns = [col for col in train_df.select_dtypes(include=['object']).columns]
+            # Define categorical and numerical columns
+            numerical_columns = ["Zn", "Cu", "Fe", "Mn", "B", "S"]
+            categorical_columns = ["District"]  # Added this line to define categorical_columns
 
-            logging.info(f"Categorical columns detected: {categorical_columns}")
-            logging.info(f"Numerical columns detected: {numerical_columns}")
-
-            # Check if we have any columns to transform
-            if not numerical_columns and not categorical_columns:
-                raise ValueError("No columns found for transformation. Check your data.")
+            logging.info(f"Categorical columns: {categorical_columns}")
+            logging.info(f"Numerical columns: {numerical_columns}")
 
             num_pipeline = Pipeline(
                 steps=[
-                    ("imputer", SimpleImputer(strategy="mean")),
+                    ("imputer", SimpleImputer(strategy="mean")),  # Changed "average" to "mean"
                     ("scaler", StandardScaler())
                 ]
             )
@@ -48,7 +43,7 @@ class DataTransformation:
             cat_pipeline = Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder", OneHotEncoder(sparse_output=False, handle_unknown='ignore')),
+                    ("one_hot_encoder", OneHotEncoder(sparse_output=False)),  # Dense output for scaler
                     ("scaler", StandardScaler())
                 ]
             )
@@ -63,7 +58,6 @@ class DataTransformation:
             return preprocessor
         
         except Exception as e:
-            logging.error(f"Error in get_data_transformer_object: {str(e)}")
             raise CustomException(e, sys)
 
     def initiate_data_transformation(self, train_path, test_path):
@@ -83,13 +77,11 @@ class DataTransformation:
             logging.info("Obtaining preprocessing object")
             
             try:
-                # Pass train_df to dynamically determine columns
-                preprocessing_obj = self.get_data_transformer_object(train_df)
+                preprocessing_obj = self.get_data_transformer_object()
             except Exception as e:
-                logging.error(f"Failed to get preprocessing object: {str(e)}")
                 raise CustomException(e, sys)
             
-            target_column_name = "Zn"  # Update this based on your data
+            target_column_name = "Zn %"  # Update this based on soil.csv (e.g., "Zn (ppm)")
 
             # Check if target column exists
             if target_column_name not in train_df.columns:
@@ -124,25 +116,12 @@ class DataTransformation:
             )
         
         except Exception as e:
-            logging.error(f"Error in initiate_data_transformation: {str(e)}")
             raise CustomException(e, sys)
 
 if __name__ == "__main__":
     from src.components.data_ingestion import DataIngestion
-    
-    try:
-        obj = DataIngestion()
-        train_data, test_data = obj.initiate_data_ingestion()
-        
-        data_transformation = DataTransformation()
-        train_arr, test_arr, preprocessor_path = data_transformation.initiate_data_transformation(train_data, test_data)
-        
-        logging.info(f"Transformation completed. Preprocessor saved at: {preprocessor_path}")
-    except Exception as e:
-        logging.error(f"Main execution error: {str(e)}")
-        
-    # In data_transformation.py
-preprocessor_save_path = os.path.abspath(DataTransformationConfig.preprocessor_obj_file_path)
-logging.info(f"Full preprocessor save path: {preprocessor_save_path}")
-os.makedirs(os.path.dirname(preprocessor_save_path), exist_ok=True)
-
+    obj = DataIngestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+    data_transformation = DataTransformation()
+    train_arr, test_arr, preprocessor_path = data_transformation.initiate_data_transformation(train_data, test_data)
+    logging.info(f"Transformation completed. Preprocessor saved at: {preprocessor_path}")
