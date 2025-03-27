@@ -1,7 +1,17 @@
+*.sage.py
+celerybeat.pid
+celerybeat-schedule
 # Byte-compiled / optimized / DLL files
-__pycache__/
+.artifacts
+.env
+.__pycache__/
 *.py[cod]
 *$py.class
+.env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # C extensions
 *.so
