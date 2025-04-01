@@ -1,0 +1,390 @@
+<!--<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("https://plus.unsplash.com/premium_photo-1682092016074-b136e1acb26e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            min-height: 100%;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .search-section {
+            padding: 128px 16px;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .search-section h3 {
+            font-size: 2em;
+            margin-bottom: 16px;
+        }
+
+        .search-bar {
+            width: 60%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .search-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 64px 16px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    ----- Navbar (sit on top) ---
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+            <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+                <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+                <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+                <a href="#search" class="w3-bar-item w3-button"><i class="fa fa-search"></i> AI SEARCH</a>
+            </div>
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+    ....... Sidebar on small screens 
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+        style="display:none" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close
+            ×</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+        <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+        <a href="#search" onclick="w3_close()" class="w3-bar-item w3-button">AI SEARCH</a>
+    </nav>
+
+    ..... Header with full-height image
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+            <span class="w3-jumbo w3-hide-small">Start something that matters</span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+            <span class="w3-large">Empowering Farmers, Cultivating Communities</span>
+            <p><a href="#about"
+                    class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
+                    more and start today</a></p>
+        </div>
+    </header>
+
+    .... About Section 
+    <div class="w3-container" style="padding:128px 16px" id="about">
+        <h3 class="w3-center">ABOUT THE TEAM</h3>
+        <p class="w3-center w3-large">Key features of our team</p>
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+            <div class="w3-quarter">
+                <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+                <p class="w3-large">Responsive</p>
+                <p>Multiple Device Accessible</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Passion</p>
+                <p>We Are Passionate About Finding The Best For you!!</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Design</p>
+                <p>Our Design Is Simple And Easy To Use.</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Support</p>
+                <p>24 X 7 Support Available For You.</p>
+            </div>
+        </div>
+    </div>
+
+    .... AI Search Section 
+    <div class="search-section" id="search">
+        <h3>Ask Our AI</h3>
+        <p>Type your queries here:</p>
+        <input type="text" class="search-bar" placeholder="Type your queries here...">
+        <button class="search-button">Search</button>
+    </div>
+
+    .... Footer 
+    <footer class="w3-center">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <div class="w3-xlarge w3-section">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+        <p>Powered by <a href="https://www.linkedin.com/in/vivek-prasad-036b692b4/" title="Lone Coders" target="_blank"
+                class="w3-hover-text-green">Lone Coders</a></p>
+    </footer>
+
+    <div class="w3-container" style="padding:128px 16px" id="team">
+        <h3 class="w3-center">OUR TEAM</h3>
+        <p class="w3-center w3-large">The ones who runs this company</p>
+        <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg"
+                        alt="John" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Vivek Prasad</h3>
+                        <p class="w3-opacity">Innovator ,AI Developer ,Backend Developer </p>
+                        <p>Team Lead</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i>
+                                <a href="https://www.linkedin.com/in/vivek-prasad-036b692b4/">Contact</a></button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg"
+                        alt="Jane" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Janhavi Kashyap</h3>
+                        <p class="w3-opacity">Front-end developer</p>
+                        <p>Member of team</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i>
+                                <a href="https://www.linkedin.com/in/janhavi-kashyap-385997277/">Contact</a></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                // Toggle between showing and hiding the sidebar when clicking the menu icon
+                var mySidebar = document.getElementById("mySidebar");
+
+                function w3_open() {
+                    if (mySidebar.style.display === 'block') {
+                        mySidebar.style.display = 'none';
+                    } else {
+                        mySidebar.style.display = 'block';
+                    }
+                }
+
+                // Close the sidebar with the close button
+                function w3_close() {
+                    mySidebar.style.display = "none";
+                }
+            </script>
+
+</body>
+
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Nutrient Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Soil Nutrient Prediction</h1>
+    <div class="form-container">
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="District">District:</label>
+                <input type="text" id="District" name="District" required>
+            </div>
+            <div class="form-group">
+                <label for="Zn">Zinc (Zn):</label>
+                <input type="number" id="Zn" name="Zn" required>
+            </div>
+            <div class="form-group">
+                <label for="Cu">Copper (Cu):</label>
+                <input type="number" id="Cu" name="Cu" required>
+            </div>
+            <div class="form-group">
+                <label for="Fe">Iron (Fe):</label>
+                <input type="number" id="Fe" name="Fe" required>
+            </div>
+            <div class="form-group">
+                <label for="Mn">Manganese (Mn):</label>
+                <input type="number" id="Mn" name="Mn" required>
+            </div>
+            <div class="form-group">
+                <label for="B">Boron (B):</label>
+                <input type="number" id="B" name="B" required>
+            </div>
+            <div class="form-group">
+                <label for="S">Sulfur (S):</label>
+                <input type="number" id="S" name="S" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const resultDiv = document.getElementById('result');
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    resultDiv.style.display = 'block';
+                    if (data.error) {
+                        resultDiv.className = 'error';
+                        resultDiv.textContent = 'Error: ' + data.error;
+                    } else {
+                        resultDiv.className = 'success';
+                        resultDiv.textContent = 'Prediction: ' + data.prediction.toFixed(2);
+                    }
+                })
+                .catch(error => {
+                    resultDiv.style.display = 'block';
+                    resultDiv.className = 'error';
+                    resultDiv.textContent = 'Error: ' + error.message;
+                });
+        });
+    </script>
+</body>
+
+</html>

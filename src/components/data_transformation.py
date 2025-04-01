@@ -81,7 +81,7 @@ class DataTransformation:
             except Exception as e:
                 raise CustomException(e, sys)
             
-            target_column_name = "Zn %"  # Update this based on soil.csv (e.g., "Zn (ppm)")
+            target_column_name = "Zn"  # Update this based on soil.csv (e.g., "Zn (ppm)")
 
             # Check if target column exists
             if target_column_name not in train_df.columns:
